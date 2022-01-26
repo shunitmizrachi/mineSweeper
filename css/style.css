@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    background-color: rgb(20, 18, 20);
+    color: whitesmoke;
+    font-family: fantasy;
+}
+
+h1 {
+    color: whitesmoke;
+    font-size:50px;
+    font-family: fantasy;
+    cursor: pointer;  
+}
+
+h1:hover {
+    color: rgba(82, 73, 73, 0.877);
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .board{
+      width: 100%;
+  }
+
+  .board td {
+    width: 20px;
+    height: 20px;
+    transition: 0.5s;
+    border:solid 1px rgb(243, 207, 153);
+    padding: 15px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.board td:hover {
+    background-color: rgb(168, 156, 151);
+}
+
