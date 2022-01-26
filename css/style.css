@@ -19,6 +19,7 @@ h1:hover {
 table {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
   }
 
   .board{
@@ -37,5 +38,10 @@ table {
 
 .board td:hover {
     background-color: rgb(168, 156, 151);
+}
+
+.timer {
+    display: inline-block;
+    margin: 10px;
 }
 

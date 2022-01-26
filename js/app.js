@@ -3,6 +3,9 @@
 var gBoard;
 var gLevel;
 var gGame;
+var gIdIntevalTimer;
+var gIsGameOn = true;
+var gTotalSeconds = 0; 
 
 
 function initGame() {
@@ -43,17 +46,17 @@ function renderBoard(board) {
     // console.log('strHTML', strHTML)
     var elBoard = document.querySelector('.board');
     elBoard.innerHTML = strHTML;
-    console.log(elBoard);
-    console.log(board);
 }
 
 function cellClicked(elCell, i, j) {
     var value = setMinesNegsCount(gBoard, i, j);
     elCell.innerHTML = value;
+    console.log(gBoard);
+    if (gIsGameOn) gIdIntevalTimer = setInterval(countTimer, 1000);    
 }
 
 function setMinesNegsCount(mat, cellI, cellJ) {
-    var strHTML='';
+    var strHTML = '';
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= mat.length) continue;
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
@@ -84,7 +87,36 @@ function addMines(board) {
 function createMine(mat) {
     var randIdx = getRandomIntexclusive(0, mat.length);
     var randJdx = getRandomIntexclusive(0, mat[0].length);
-    var randCoord = {i:randIdx, j:randJdx};
+    var randCoord = { i: randIdx, j: randJdx };
     return randCoord;
 }
 
+function countTimer() {
+    ++gTotalSeconds;
+    var hour = Math.floor(gTotalSeconds / 3600);
+    var minute = Math.floor((gTotalSeconds - hour * 3600) / 60);
+    var seconds = gTotalSeconds - (hour * 3600 + minute * 60);
+    if (hour < 10)
+        hour = "0" + hour;
+    if (minute < 10)
+        minute = "0" + minute;
+    if (seconds < 10)
+        seconds = "0" + seconds;
+
+    var elTimer = document.querySelector('.time');
+    elTimer.innerHTML = hour + " : " + minute + " : " + seconds;
+}
+
+
+cellMarked();
+
+function cellMarked() {
+ document.addEventListener('contextmenu', event => event.preventDefault());
+}
+
+
+
+function endGame() {
+    gIsGameOn = false;
+    clearInterval(gIdIntevalTimer);
+}
