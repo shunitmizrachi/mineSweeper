@@ -222,7 +222,7 @@ function checkVictory(board) {
 function winGame(mat) {
 	console.log(mat);
 	var elModal = document.querySelector('.modal');
-	elModal.innerHTML = 'You win! press restart to play again';
+	elModal.innerHTML = 'You win! Press restart to play again';
 	var elSmile = document.querySelector('.smile');
 	elSmile.innerHTML = WIN;
 
@@ -258,7 +258,7 @@ function expandShown(board, cellI, cellJ) {
 function gameOver() {
 	clearInterval(gIdTimeInterval);
 	var elModal = document.querySelector('.modal')
-	elModal.innerHTML = 'Game Over! press restart to play again'
+	elModal.innerHTML = 'Game Over! Press restart to play again'
 	var elSmile = document.querySelector('.smile');
 	elSmile.innerHTML = SAD;
 
