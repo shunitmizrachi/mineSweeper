@@ -1,5 +1,4 @@
 'use strict'
-
 function createMat(ROWS, COLS) {
     var mat = []
     for (var i = 0; i < ROWS; i++) {
@@ -14,7 +13,5 @@ function createMat(ROWS, COLS) {
 
 function getRandomIntexclusive(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
-  }
+}
 
-
-  
